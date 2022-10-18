@@ -61,7 +61,6 @@ pipeline {
                 heroku container:login
                 heroku create $STAGING || echo "project already exist"
                 heroku container:push -a $STAGING web
-                heroku container:release -a $STAGING web
                 '''
             }
          }
@@ -81,7 +80,6 @@ pipeline {
                 heroku container:login
                 heroku create $PRODUCTION || echo "project already exist"
                 heroku container:push -a $PRODUCTION web
-                heroku container:release -a $PRODUCTION web
                 '''
             }
          }
