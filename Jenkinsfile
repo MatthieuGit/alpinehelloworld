@@ -1,3 +1,5 @@
+/* import shared library */
+@Library('eazytraining-shared-library')
 pipeline {
     environment {
         IMAGE_NAME = "alpinehelloworld"
@@ -31,7 +33,7 @@ pipeline {
             steps {
                 script {
                     sh '''
-                        curl http://192.168.1.24 | grep -q "Hello world!"
+                        curl http://192.168.1.70 | grep -q "Hello world!"
                     '''
                 }
             }
@@ -86,5 +88,12 @@ pipeline {
             }
          }
         }
+    }
+     post {
+         always {
+             script {
+                 slackNotifier currentBuild.result
+             }
+         }
     }
 }
