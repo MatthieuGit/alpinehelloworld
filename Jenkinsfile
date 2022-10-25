@@ -1,5 +1,6 @@
 /* import shared library */
 @Library('eazytraining-shared-library')
+
 pipeline {
     environment {
         IMAGE_NAME = "alpinehelloworld"
