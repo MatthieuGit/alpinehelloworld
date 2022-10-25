@@ -23,7 +23,7 @@ pipeline {
             steps {
                 script {
                     sh '''
-                        docker run -d -p 80:5000 -e PORT=5000 --name ${IMAGE_NAME} ${IMAGE_NAME}:${IMAGE_TAG}
+                        docker run -d -p 80:5000 -e PORT=5000 --name ${IMAGE_NAME} matthewmurdauck/${IMAGE_NAME}:${IMAGE_TAG}
                         sleep 5
                     '''
                 }
